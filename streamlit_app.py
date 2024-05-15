@@ -1,8 +1,10 @@
 import streamlit as st
 import openai
+from langchain.llms import OpenAI
 
 # Set your OpenAI API key here
-openai.api_key = "your_openai_api_key"
+#openai.api_key = "your_openai_api_key"
+openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
 # Define local slang equivalents (add more as needed)
 slang_equivalents = {
