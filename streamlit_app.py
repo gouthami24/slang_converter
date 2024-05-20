@@ -3,39 +3,13 @@ import openai
 from langchain_openai import ChatOpenAI
 
 # Set your OpenAI API key here
-#openai.api_key = "your_openai_api_key"
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
-
-# Define local slang equivalents (add more as needed)
-slang_equivalents = {
-    'hello': 'yo',
-    'goodbye': 'later gator',
-    'thank you': 'cheers',
-    'please': 'pretty please',
-    'sorry': 'my bad',
-    'yes': 'yep',
-    'no': 'nah',
-}
 
 # Function to convert text to local slang
 def convert_to_local_slang(text, target_language):
-    #response = openai.Completion.create(
-    #    engine="text-davinci-003",
-    #    prompt=text,
-    #    temperature=0.5,
-    #    max_tokens=100,
-    #    stop=["\n"]
-    #)
-
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature = 0.5)
-    st.write(text)
-    st.write(target_language)
     prompt=f"{text} in {target_language}"
     response = llm.stream(prompt)
-    #translated_text = response.choices[0].text.strip()
-    #for word, slang in slang_equivalents.items():
-    #    translated_text = translated_text.replace(word, slang)
-    #return translated_text
     return (response)
 
 # Streamlit App
@@ -43,7 +17,7 @@ st.title('English to Local Slang Converter')
 
 # User input
 text_to_translate = st.text_area('Enter English text:', '')
-target_language = st.selectbox('Select target language:', ['es', 'fr', 'de'])  # Spanish, French, German
+target_language = st.selectbox('Select target language:', ['es', 'fr', 'de','Texas','UK English','Australian English'])  # Spanish, French, German
 
 # Convert text to local slang
 if st.button('Convert'):
