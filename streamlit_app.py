@@ -17,7 +17,7 @@ st.title('English to Local Slang Converter')
 
 # User input
 text_to_translate = st.text_area('Enter English text:', '')
-target_language = st.selectbox('Select target language:', ['es', 'fr', 'de','Texas','UK English','Australian English'])  # Spanish, French, German
+target_language = st.selectbox('Select target language:', ['Texas','British','Australian','New Zealand', 'Canadian','Irish'])  
 
 # Convert text to local slang
 if st.button('Convert'):
