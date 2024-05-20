@@ -28,10 +28,11 @@ def convert_to_local_slang(text, target_language):
     #)
     llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature = 0.5)
     response = llm.invoke("Give the local slang of {text} in {target_language}")
-    translated_text = response.choices[0].text.strip()
-    for word, slang in slang_equivalents.items():
-        translated_text = translated_text.replace(word, slang)
-    return translated_text
+    #translated_text = response.choices[0].text.strip()
+    #for word, slang in slang_equivalents.items():
+    #    translated_text = translated_text.replace(word, slang)
+    #return translated_text
+    return (response)
 
 # Streamlit App
 st.title('English to Local Slang Converter')
