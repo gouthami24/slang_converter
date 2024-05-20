@@ -1,6 +1,6 @@
 import streamlit as st
 import openai
-from langchain.llms import OpenAI
+from langchain_openai import ChatOpenAI
 
 # Set your OpenAI API key here
 #openai.api_key = "your_openai_api_key"
