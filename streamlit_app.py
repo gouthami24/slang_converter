@@ -26,7 +26,7 @@ def convert_to_local_slang(text, target_language):
     #    max_tokens=100,
     #    stop=["\n"]
     #)
-    llm = ChatOpenAI(api_key=openaikey, model_name="gpt-3.5-turbo", temperature = 0.5)
+    llm = ChatOpenAI(api_key=openai_api_key, model_name="gpt-3.5-turbo", temperature = 0.5)
     response = llm.invoke("Give the local slang of {text} in {target_language}")
     translated_text = response.choices[0].text.strip()
     for word, slang in slang_equivalents.items():
